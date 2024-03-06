@@ -12,5 +12,5 @@ spec:
  protocol: TCP
  targetPort: {{ .Values.service.internalPort }}
  selector:
- app: project
- component: ui
+   app: project
+   component: ui
