@@ -2,10 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ui
+  name: crawler
   labels:
     app: project
-    component: ui
+    component: crawler
 spec:
   replicas: 1
   strategy:
@@ -13,18 +13,18 @@ spec:
   selector:
     matchLabels:
       app: project
-      component: ui
+      component: crawler
   template:
     metadata:
-      name: ui
+      name: crawler
       labels:
         app: project
-        component: ui
+        component: crawler
     spec:
       containers:
-        - image: vitaliymikhailoff/project_ui:1.0
-          name: ui
+        - image: vitaliymikhailoff/project_crawler:1.0
+          name: crawler
           ports:
           - containerPort: 8000
-            name: ui
+            name: crawler
             protocol: TCP

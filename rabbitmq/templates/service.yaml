@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ui
+  name: rabbithost
   labels:
     app: project
-    component: ui
+    component: rabbithost
 spec:
   type: NodePort
   ports:
-  - port: 8000
+  - port: 5672
     protocol: TCP
-    targetPort: 8000
+    targetPort: 5672
   selector:
     app: project
-    component: ui
+    component: rabbithost

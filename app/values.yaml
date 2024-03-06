@@ -1,0 +1,13 @@
+crawler:
+  image:
+    repository: vitaliymikhailoff/project_crawler
+    tag: 1.0
+  service:
+    externalPort: 8000
+
+ui:
+  image:
+    repository: vitaliymikhailoff/project_ui
+    tag: 1.0
+  service:
+    externalPort: 8000

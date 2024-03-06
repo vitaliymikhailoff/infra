@@ -2,16 +2,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ui
+  name: mongohost
   labels:
     app: project
-    component: ui
+    component: mongohost
 spec:
-  type: NodePort
   ports:
-  - port: 8000
+  - port: 27017
     protocol: TCP
-    targetPort: 8000
+    targetPort: 27017
   selector:
     app: project
-    component: ui
+    component: mongohost

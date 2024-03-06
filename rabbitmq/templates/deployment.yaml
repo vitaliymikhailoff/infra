@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbithost
+  labels:
+    app: project
+    component: rabbithost
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project
+      component: rabbithost
+  template:
+    metadata:
+      name: rabbithost
+      labels:
+        app: project
+        component: rabbithost
+    spec:
+      containers:
+        - image: rabbitmq:3.13.0-management
+          name: rabbithost
+          ports:
+          - containerPort: 5672
+            name: rabbithost
+            protocol: TCP
+          volumeMounts:
+            - name: definitions
+              mountPath: /etc/rabbitmq/definitions.json
+              readOnly: true
+          volumeMounts:
+            - name: rabbitmqconfig
+              mountPath: /etc/rabbitmq/rabbitmq.config
+              readOnly: true
+      volumes:
+      - name: definitions
+        hostPath:
+          path: ./configs/definitions.json
+          type: FileOrCreate
+      - name: rabbitmqconfig
+        hostPath:
+          path: ./configs/rabbitmq.config
+          type: FileOrCreate

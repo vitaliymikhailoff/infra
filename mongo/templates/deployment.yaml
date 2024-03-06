@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongohost
+  labels:
+    app: project
+    component: mongohost
+    mongohost: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project
+      component: mongohost
+  template:
+    metadata:
+      name: mongohost
+      labels:
+        app: project
+        component: mongohost
+        mongohost: "true"        
+    spec:
+      containers:
+      - image: mongo:3.2
+        name: mongohost
