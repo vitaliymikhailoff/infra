@@ -22,5 +22,5 @@ spec:
         mongohost: "true"        
     spec:
       containers:
-      - image: mongo:3.2
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         name: mongohost

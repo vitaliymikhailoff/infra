@@ -9,9 +9,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 5672
+  - port: {{ .Values.service.externalPort }}
     protocol: TCP
-    targetPort: 5672
+    targetPort: {{ .Values.service.internalPort }}
   selector:
     app: project
     component: rabbithost

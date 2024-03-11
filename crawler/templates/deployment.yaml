@@ -22,9 +22,9 @@ spec:
         component: crawler
     spec:
       containers:
-        - image: vitaliymikhailoff/project_crawler:1.0
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           name: crawler
           ports:
-          - containerPort: 8000
+          - containerPort: {{ .Values.service.internalPort }}
             name: crawler
             protocol: TCP

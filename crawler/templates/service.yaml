@@ -9,9 +9,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8000
+  - port: {{ .Values.service.externalPort }}
     protocol: TCP
-    targetPort: 8000
+    targetPort: {{ .Values.service.internalPort }}
   selector:
     app: project
     component: crawler

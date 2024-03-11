@@ -20,9 +20,9 @@ spec:
         component: rabbithost
     spec:
       containers:
-        - image: vitaliymikhailoff/project_rabbit:1.0
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           name: rabbithost
           ports:
-          - containerPort: 5672
+          - containerPort: {{ .Values.service.internalPort }}
             name: rabbithost
             protocol: TCP

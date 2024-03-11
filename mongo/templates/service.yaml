@@ -8,9 +8,9 @@ metadata:
     component: mongohost
 spec:
   ports:
-  - port: 27017
+  - port: {{ .Values.service.externalPort }}
     protocol: TCP
-    targetPort: 27017
+    targetPort: {{ .Values.service.internalPort }}
   selector:
     app: project
     component: mongohost

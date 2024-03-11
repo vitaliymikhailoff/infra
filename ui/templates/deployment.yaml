@@ -22,9 +22,9 @@ spec:
         component: ui
     spec:
       containers:
-        - image: vitaliymikhailoff/project_ui:1.0
+        - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           name: ui
           ports:
-          - containerPort: 8000
+          - containerPort: {{ .Values.service.internalPort }}
             name: ui
             protocol: TCP
