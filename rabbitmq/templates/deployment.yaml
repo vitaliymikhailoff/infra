@@ -20,26 +20,9 @@ spec:
         component: rabbithost
     spec:
       containers:
-        - image: rabbitmq:3.13.0-management
+        - image: vitaliymikhailoff/project_rabbit:1.0
           name: rabbithost
           ports:
           - containerPort: 5672
             name: rabbithost
             protocol: TCP
-          volumeMounts:
-            - name: definitions
-              mountPath: /etc/rabbitmq/definitions.json
-              readOnly: true
-          volumeMounts:
-            - name: rabbitmqconfig
-              mountPath: /etc/rabbitmq/rabbitmq.config
-              readOnly: true
-      volumes:
-      - name: definitions
-        hostPath:
-          path: ./configs/definitions.json
-          type: FileOrCreate
-      - name: rabbitmqconfig
-        hostPath:
-          path: ./configs/rabbitmq.config
-          type: FileOrCreate

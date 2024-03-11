@@ -1,4 +1,4 @@
-name: rabbitmq
+name: rabbithost
 version: 1.0.0
 description: Rabbit
 maintainers:

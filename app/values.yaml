@@ -11,3 +11,10 @@ ui:
     tag: 1.0
   service:
     externalPort: 8000
+
+rabbitmq:
+  image:
+    repository: vitaliymikhailoff/project_rabbit
+    tag: 1.0
+  service:
+    externalPort: 5672

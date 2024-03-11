@@ -4,5 +4,5 @@ service:
   externalPort: 5672
 
 image:
-  repository: rabbitmq
-  tag: 3.13.0-management
+  repository: vitaliymikhailoff/project_rabbit
+  tag: 1.0
